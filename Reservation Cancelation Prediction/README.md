@@ -32,10 +32,10 @@ Model akan dievaluasi berdasarkan kemampuannya dalam mengklasifikasikan pembatal
 
 Kesimpulan EDA:
 
-Distribusi data target adalah 67.2% berbanding 32.8%. Diasumsikan distribusi data tersebut masih balance, karena diasumsikan data yang mulai imbalance adalah data dengan proporsi 70:30.
-Berdasarkan jumlah tamu yang mencancel bookingnya terhadap hotel, dapat dilihat bahwa jumlahnya cukup banyak. Hal tersebut dapat membuat kerugian pada hotel apabila tidak ditanggulangi dan diatur dalam sistem booking yang baik.
-Room tipe 1 merupakan kamar paling favorit di hotel untuk reservasi. Sebagian besar pelanggan yang mereservasi hotel hanya terdiri dari orang dewasa saja dengan waktu inap yang tidak panjang. Untuk makanan yang mendominasi pada data adalah makanan paket meal_plan_1, dengan mengetahui banyaknya yang memesan makanan ini maka stok makanan ini membutuhkan perhatian khusus agar dapat disesuaikan dengan pemesanan yang akan ada.
-Jumlah tamu yang mendominasi di bulan 9 dan 10 serta penurunan tamu pada akhir tahun yaitu di bulan 11 dan 12. Pemesanan hotel didominasi dengan pemesanan online, dengan mengetahui hal ini pihak manajemen dapat memberikan benefit lebih kepada tamu yang memesan online dan juga lebih memerhatikan sistem pemesanan online agar tidak terjadi masalah.
+1. Distribusi data target adalah 67.2% berbanding 32.8%. Diasumsikan distribusi data tersebut masih balance, karena diasumsikan data yang mulai imbalance adalah data dengan proporsi 70:30.
+2. Berdasarkan jumlah tamu yang mencancel bookingnya terhadap hotel, dapat dilihat bahwa jumlahnya cukup banyak. Hal tersebut dapat membuat kerugian pada hotel apabila tidak ditanggulangi dan diatur dalam sistem booking yang baik.
+3. Room tipe 1 merupakan kamar paling favorit di hotel untuk reservasi. Sebagian besar pelanggan yang mereservasi hotel hanya terdiri dari orang dewasa saja dengan waktu inap yang tidak panjang. Untuk makanan yang mendominasi pada data adalah makanan paket meal_plan_1, dengan mengetahui banyaknya yang memesan makanan ini maka stok makanan ini membutuhkan perhatian khusus agar dapat disesuaikan dengan pemesanan yang akan ada.
+4. Jumlah tamu yang mendominasi di bulan 9 dan 10 serta penurunan tamu pada akhir tahun yaitu di bulan 11 dan 12. Pemesanan hotel didominasi dengan pemesanan online, dengan mengetahui hal ini pihak manajemen dapat memberikan benefit lebih kepada tamu yang memesan online dan juga lebih memerhatikan sistem pemesanan online agar tidak terjadi masalah.
 
 Kesimpulan Model Analysis: 
 Berdasarkan Model Analysis yang dibuat diputuskan bahwa SVM merupakan pemodelan model Classification yang terbaik untuk memprediksi tamu yang mencancel reservasi serta didapatkan hal-hal berikut terkait dengan model yang digunakan, yaitu:
@@ -45,4 +45,4 @@ Berdasarkan Model Analysis yang dibuat diputuskan bahwa SVM merupakan pemodelan 
 3. Recall akhir pada data test sebesar 0.9152576899572215 menunjukkan bahwa model mampu mengidentifikasi sekitar 91.52% dari total sampel kelas positif yang sebenarnya. Recall pada data train sebesar 0.9194410193177147 menunjukkan bahwa model mampu mengidentifikasi sekitar 91.94% dari total sampel kelas positif yang sebenarnya.
 
 
-##Untuk pemodelan yang dilakukan masih dapat ditingkatkan kembali, khususnya dalam pencarian hyperparameter tuningnya, bisa ditingkatkan jumlah iterationya sehingga mungkin dapat tereksplor hyperparameter yang lebih baik lagi dan dapat meningkatkan kinerja model.
+Untuk pemodelan yang dilakukan masih dapat ditingkatkan kembali, khususnya dalam pencarian hyperparameter tuningnya, bisa ditingkatkan jumlah iterationya sehingga mungkin dapat tereksplor hyperparameter yang lebih baik lagi dan dapat meningkatkan kinerja model.
