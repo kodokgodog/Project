@@ -1,222 +1,48 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/2Ykgl4zF)
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-718a45dd9cf7e7f842a935f5ebbe5719a5e09af4491e668f4dbf3b35d5cca122.svg)](https://classroom.github.com/online_ide?assignment_repo_id=11246152&assignment_repo_type=AssignmentRepo)
-# Phase 2 - Milestones 1
 
-_Milestones ini dibuat guna mengevaluasi pembelajaran pada Hacktiv8 Data Science Full Time Program Phase 2 khususnya pada Artificial Neural Network._
+# Customer Churn Prediction
 
----
+Project ini merupakan project mandiri. Project ini memiliki tujuan mengembangkan model prediksi churn yang kuat dan akurat yang dapat digunakan untuk mengidentifikasi pelanggan yang berisiko churn. Hal ini akan memungkinkan perusahaan untuk mengambil tindakan proaktif, seperti kampanye pemasaran yang ditargetkan, penawaran yang dipersonalisasi, atau peningkatan layanan pelanggan, untuk mempertahankan pelanggan dan mengurangi churn.
 
-## Assignment Objectives
+## Deployment Link
+Deployment : https://huggingface.co/spaces/kodokgodog/Customer_Churn_Prediction
 
-*Milestones 1* ini dibuat guna mengevaluasi Pembelajaran Phase 2 :
+## Permasalahan
 
-- Mampu memahami konsep Artificial Neural Network.
-- Mampu mempersiapkan data untuk digunakan dalam model Artificial Neural Network.
-- Mampu mengimplementasikan Artificial Neural Network dengan data yang diberikan.
-- Mampu menganalisis dan menjelaskan layer yang dibuat.
+Permasalahan yang ada di dalam project ini adalah, diperlukannya pengembangan model klasifikasi dari tamu hotel yang telah melakukan reservasi kepada hotel tersebut membatalkan reservasinya. Hal tersebut dapat berguna untuk manajemen hotel agar bisa melakukan strategi terhadap pembatalan yang akan terjadi. Model ini dibuat dan dilatih yang selanjutnya dilakukan evaluasi dengan menggunakan algoritma machine learning, algoritma yang digunakan dipilih dengan menggunakan metode cross validation dan didapatkan algoritma akhir yang digunakan adalah SVM yang selanjutnya dilakukan hyperparameter tuning menggunakan GridsearchCV. Dengan tujuan untuk memperoleh model yang memiliki kinerja yang paling baik untuk digunakan dalam prediksi. 
 
----
+## Deskripsi Data
 
-## Problems
+Dataset ini terdiri dari informasi klien pemesan hotel, terutama terkait dengan proses reservasi hotel seperti jumlah tamu, jumlah kamar dipesan, serta kebutuhan khusus lainnya. Variabel target adalah status pembatalan reservasi.
 
-Sebuah perusahaan ingin meminimalisir resiko seorang customer untuk berhenti memakai produk yang mereka tawarkan. Bantulah perusahaan tersebut untuk memprediksi customer yang akan berhenti (churn) dari dataset yang diberikan. 
+## Evaluasi Model
 
-*Dataset terlampir pada repository*
+Model akan dievaluasi berdasarkan kemampuannya dalam mengklasifikasikan pembatalan reservasi dengan benar. Metrik evaluasi utamanya adalah recall, yang memberikan penilaian terhadap kemampuan model dalam membedakan seberapa baik model dalam memprediksi kelas canceled secara akurat.
 
----
+## Alur Proyek
 
-## Dataset Description
+1. Preproses data: Lakukan pembersihan data, penanganan nilai yang hilang, penanganan outlier, dan pengkodean fitur kategori.
+2. Rekayasa fitur: Buat fitur tambahan jika diperlukan dan pilih fitur yang relevan.
+3. Pelatihan model: Latih beberapa model pembelajaran mesin termasuk SVM, XGBoost, dan LightGBM.
+4. Evaluasi model: Evaluasi model menggunakan berbagai metrik seperti ROC-AUC, akurasi, presisi, dan recall.
+5. Hyperparameter Tuning: Dilakukan untuk mengoptimalkan model yang dipilih dengan memilih hiperparameter menggunakan teknik seperti Random Search.
+6. Pemilihan model akhir: Memilih model dengan performa terbaik berdasarkan metrik evaluasi.
+7. Inferensi model
 
-Dataset name : `churn.csv`
+## Kesimpulan
 
-| Column | Description |
-| --- | --- |
-| `user_id` | ID of a customer |
-| `age` | Age of a customer |
-| `gender` | Gender of a customer |
-| `region_category` | Region that a customer belongs to |
-| `membership_category` | Category of the membership that a customer is using |
-| `joining_date` | Date when a customer became a member |
-| `joined_through referral` | Whether a customer joined using any referral code or ID |
-| `preferred_offer types` | Type of offer that a customer prefers |
-| `medium_of operation` | Medium of operation that a customer uses for transactions |
-| `internet_option` | Type of internet service a customer uses |
-| `last_visit_time` | The last time a customer visited the website |
-| `days_since_last_login` | Number of days since a customer last logged into the website |
-| `avg_time_spent` | Average time spent by a customer on the website |
-| `avg_transaction_value` | Average transaction value of a customer |
-| `avg_frequency_login_days` | Number of times a customer has logged in to the website |
-| `points_in_wallet` | Points awarded to a customer on each transaction |
-| `used_special_discount` | Whether a customer uses special discounts offered |
-| `offer_application_preference` | Whether a customer prefers offers |
-| `past_complaint` | Whether a customer has raised any complaints |
-| `complaint_status` | Whether the complaints raised by a customer was resolved |
-| `feedback` | Feedback provided by a customer |
-| `churn_risk_score` | Churn score <br><br> `0` : Not churn <br> `1` : Churn |
+Kesimpulan EDA:
 
----
+1. Distribusi data target adalah 67.2% berbanding 32.8%. Diasumsikan distribusi data tersebut masih balance, karena diasumsikan data yang mulai imbalance adalah data dengan proporsi 70:30.
+2. Berdasarkan jumlah tamu yang mencancel bookingnya terhadap hotel, dapat dilihat bahwa jumlahnya cukup banyak. Hal tersebut dapat membuat kerugian pada hotel apabila tidak ditanggulangi dan diatur dalam sistem booking yang baik.
+3. Room tipe 1 merupakan kamar paling favorit di hotel untuk reservasi. Sebagian besar pelanggan yang mereservasi hotel hanya terdiri dari orang dewasa saja dengan waktu inap yang tidak panjang. Untuk makanan yang mendominasi pada data adalah makanan paket meal_plan_1, dengan mengetahui banyaknya yang memesan makanan ini maka stok makanan ini membutuhkan perhatian khusus agar dapat disesuaikan dengan pemesanan yang akan ada.
+4. Jumlah tamu yang mendominasi di bulan 9 dan 10 serta penurunan tamu pada akhir tahun yaitu di bulan 11 dan 12. Pemesanan hotel didominasi dengan pemesanan online, dengan mengetahui hal ini pihak manajemen dapat memberikan benefit lebih kepada tamu yang memesan online dan juga lebih memerhatikan sistem pemesanan online agar tidak terjadi masalah.
 
-## Assignment Instructions
+Kesimpulan Model Analysis: 
+Berdasarkan Model Analysis yang dibuat diputuskan bahwa SVM merupakan pemodelan model Classification yang terbaik untuk memprediksi tamu yang mencancel reservasi serta didapatkan hal-hal berikut terkait dengan model yang digunakan, yaitu:
 
-*Milestones 1* dikerjakan dalam format *notebook* dan *model deployment* dengan beberapa *kriteria wajib* di bawah ini:
+1. Evaluasi skor permodelan menggunakan recall, digunakan karena dapat menunjukkan seberapa baik model dalam memprediksi kelas canceled secara akurat.
+2. Berdasarkan hasil GridSearcCV maka parameter terbaik yang akan digunakan adalah C = 0.1 dan kernel : rbf. Dengan menggunakan parameter tersebut meningkatkan skor recall yang dihasilkan bila dibandingkan dengan base model.
+3. Recall akhir pada data test sebesar 0.9152576899572215 menunjukkan bahwa model mampu mengidentifikasi sekitar 91.52% dari total sampel kelas positif yang sebenarnya. Recall pada data train sebesar 0.9194410193177147 menunjukkan bahwa model mampu mengidentifikasi sekitar 91.94% dari total sampel kelas positif yang sebenarnya.
 
-1. Deep Learning framework yang digunakan adalah *TensorFlow*.
 
-2. Ada penggunaan library visualisasi, seperti *matplotlib*, *seaborn*, atau yang lain.
-
-3. Isi *notebook* harus mengikuti *outline* di bawah ini:
-   1. Perkenalan
-      > Bab pengenalan harus diisi dengan identitas, gambaran besar dataset yang digunakan, dan *objective* yang ingin dicapai.
-   
-   2. Import Libraries
-      > *Cell* pertama pada *notebook* **harus berisi dan hanya berisi** semua *library* yang digunakan dalam *project*.
-   
-   3. Data Loading
-      > Bagian ini berisi proses penyiapan data sebelum dilakukan eksplorasi data lebih lanjut. Proses Data Loading dapat berupa memberi nama baru untuk setiap kolom, mengecek ukuran dataset, dll.
-   
-   4. Exploratory Data Analysis (EDA)
-      > Bagian ini berisi explorasi data pada dataset diatas dengan menggunakan query, grouping, visualisasi sederhana, dan lain sebagainya.
-
-   5. Feature Engineering
-      > Bagian ini berisi proses penyiapan data untuk proses pelatihan model, seperti pembagian data menjadi train-val-test, transformasi data (normalisasi, encoding, dll.), dan proses-proses lain yang dibutuhkan.   
-   
-   6. Model Definition
-      > Bagian ini berisi cell untuk mendefinisikan model. Jelaskan alasan menggunakan suatu algoritma/model, hyperparameter yang dipakai, jenis penggunaan metrics yang dipakai, dan hal lain yang terkait dengan model.
-
-   7. Model Training
-      > Cell pada bagian ini hanya berisi code untuk melatih model dan output yang dihasilkan. Lakukan beberapa kali proses training dengan hyperparameter yang berbeda untuk melihat hasil yang didapatkan. Analisis dan narasikan hasil ini pada bagian Model Evaluation.
-   
-   8. Model Evaluation
-      > Pada bagian ini, dilakukan evaluasi model yang harus menunjukkan bagaimana performa model berdasarkan metrics yang dipilih. Hal ini harus dibuktikan dengan visualisasi tren performa dan/atau tingkat kesalahan model. **Lakukan analisis terkait dengan hasil pada model dan tuliskan hasil analisisnya**.
-
-   9. Model Saving
-      > Pada bagian ini, dilakukan proses penyimpanan model dan file-file lain yang terkait dengan hasil proses pembuatan model. Pilihlah 1 arsitektur ANN yang terbaik berdasarkan hasil evaluasi sebelumnya.
-   
-   10. Model Inference
-       > Model yang sudah dilatih akan dicoba pada data yang bukan termasuk ke dalam train-set, val-set, ataupun test-set. Data ini harus dalam format yang asli, bukan data yang sudah di-scaled.
-   
-   11. Pengambilan Kesimpulan
-       > Pada bagian terakhir ini, **harus berisi** kesimpulan yang mencerminkan hasil yang didapat dengan *objective* yang sudah ditulis di bagian pengenalan.
-
-5. *Notebook* harus diupload dalam akun GitHub Classroom masing-masing siswa untuk selanjutnya dinilai.
-
-6. Presentasikan model yang telah dibuat pada P2W2D3PM.
-
----
-
-## Assignment Submission
-
-- Simpan assignment pada sesi ini dengan nama `h8dsft_P2M1_<nama-student>.ipynb`, misal `h8dsft_P2M1_raka_ardhi.ipynb`.
-
-- Push Assigment yang telah Anda buat ke akun Github Classroom masing-masing.
-
-- Untuk Model Deployment :
-  * Buat sebuah folder bernama `deployment` dan masukkan semua file yang berkaitan dengan deployment ke folder ini.
-  * Buat sebuah file bernama `url.txt` yang berisi URL deployment.
-  * Contoh bentuk isi repository dengan Model Deployment.
-    ```
-    ├── deployment/
-    │   ├── app.py
-    │   ├── eda.py
-    │   ├── prediction.py
-    │   ├── model.h5
-    │   ├── requirements.txt
-    ├── h8dsft_P2M1_raka_ardhi.ipynb
-    ├── h8dsft_P2M1_raka_ardhi_inference.ipynb
-    ├── churn.csv
-    ├── url.txt
-    └── README.md
-    ```
----
-
-## Assignment Rubrics
-
-### Code Review
-
-| Criteria|Meet Expectations|Points|
-| --- | --- | --- |
-| Feature Engineering | Mampu melakukan preprocessing dataset sebelum melakukan proses modeling (split data, normalisasi, encoding, dll) | 35 pts |
-| TensorFlow Pipeline | Mengimplementasikan TensorFlow Pipeline pada domain kasus yang dipilih. **Pipeline yang dimaksud adalah Loading and Preprocessing Data dengan menggunakan modul TensorFlow** | 5 pts |
-| ANN Training | Membuat model Artifical Neural Network dengan menggunakan Sequential API dan Functional API  | 10 pts (untuk Sequential API), <br><br> 10 pts (untuk Functional API) |
-| ANN Improvement | Membuat improvisasi model Artificial Neural Network dengan menggunakan Sequential API dan Functional API | 13 pts (untuk Sequential API), <br><br> 13 pts (untuk Functional API) |
-| Model Inference | Mencoba model yang telah dibuat dengan data baru | 10 pts |
-| Runs Perfectly | Kode berjalan tanpa ada error. Seluruh kode berfungsi dan dibuat dengan benar | 10 pts |
-
-```
-Catatan mengenai ANN Training : 
-
-1. Narasikan mengenai layer yang Anda buat beserta hyperparameter yang Anda tulis.
-2. Sebaiknya lakukan training dengan lebih dari 20 epochs agar dapat terlihat performa model dengan lebih jelas.
-3. Buatlah arsitektur yang berbeda antara Sequential API dan Functional API.
-
-Catatan mengenai ANN Improvement :
-1. Narasikan mengenai apa yang Anda lakukan untuk memperbaiki performansi dari model-model yang tercipta pada ANN Training.
-2. Sama seperti ANN Training, Anda diminta untuk membuat arsitektur Sequential API dan Functional API yang berbeda satu sama lain.
-3. Arsitektur ANN Sequential API yang dibuat untuk rubric ANN Improvement akan dibandingkan dengan aristektur ANN Sequential API dari rubric ANN Training dan harus memiliki performansi yang lebih baik, begitu juga untuk Functional API.
-4. Contoh definisi performansi yang lebih baik : memiliki nilai accuracy atau metrics lain yang lebih baik, proses training lebih cepat meski nilai accuracy sama, nilai accuracy sama namun ukuran model lebih kecil, dll.
-5. Model yang dipilih sebagai model terbaik haruslah model dari ANN Improvement, tidak boleh berasal dari ANN Training. Model terbaik ini akan digunakan pada Model Inference dan Model Deployment.
-6. Anda tidak diperkenankan menggunakan transfer learning. Ujilah beberapa arsitektur buatan Anda sendiri.
-7. Anda dipersilakan menggunakan TensorFlow Callback.
-```
-
-### Readability
-
-| Criteria | Meet Expectations | Points|
-| --- | --- | --- |
-| Tertata Dengan Baik | Semua baris kode terdokumentasi dengan baik dengan menggunakan Markdown untuk penjelasan kode. | 15 pts |
-
-```
-Kriteria tertata dengan baik diantaranya adalah : 
-
-1. Terdapat section Perkenalan yang jelas
-2. Tidak menyalin markdown dari tugas lain.
-3. Import library rapih (terdapat dalam 1 cell dan tidak ada unused libs).
-4. Pemakaian fungsi markdown yang optimal (Heading, text formating, dll). 
-5. Terdapat komentar pada setiap baris kode.
-6. Adanya pemisah yang jelas antar section, dll.
-7. Tidak adanya typo.
-```
-
-### Analysis
-
-| Criteria | Meet Expectations | Points|
-| --- |--- |--- |
-| Model Analysis | Menganalisa informasi dari model yang telah dibuat | 35 pts |
-| Overall Analysis | Menarik informasi/kesimpulan dari keseluruhan kegiatan yang dilakukan | 20 pts |
-
-```
-Contoh kriteria analisa yang baik diantaranya adalah: 
-
-1. Terdapat penjelasan macam-macam hasil metric evaluasi dan interpretasinya terhadap kasus yang diselesaikan.
-2. Dapat menjelaskan kelemahan/kekurangan dan kelebihan dari model yang dibuat.
-3. Dapat memberikan statement untuk improvement selanjutnya dari model yang dibuat. 
-4. Sebutkan insight yang dapat diambil setelah proses EDA, dll.
-```
-
-### Deployment
-
-| Criteria | Meet Expectations | Points |
-| --- | --- | --- |
-| Model Deployment | Membuat webapps terhadap project yang telah dibuat. | 15 pts |
-
-```
-Catatan mengenai Model Deployment : 
-
-1. Ketiadaan URL deployment ataupun source code deployment di repository, akan tetap diperhitungkan untuk menilai bagian Model Deployment. 
-2. Tidak diperkenankan adanya informasi tambahan/informasi susulan seperti lupa memberikan URL deployment atau lupa mengupload source code via apapun (DM buddy, email, atau yang lain).
-3. Student akan dianggap tidak melakukan Model Deployment jika tidak ada URL deployment dan source code deployment di repository.
-```
-
----
-
-```
-Total Points : 191
-```
-
----
-
-## Notes
-
-- **Deadline : P2W1D5 pukul 18:00 WIB.**
-
-- **Keterlambatan pengumpulan tugas mengakibatkan skor Milestone 1 menjadi 0.**
+Untuk pemodelan yang dilakukan masih dapat ditingkatkan kembali, khususnya dalam pencarian hyperparameter tuningnya, bisa ditingkatkan jumlah iterationya sehingga mungkin dapat tereksplor hyperparameter yang lebih baik lagi dan dapat meningkatkan kinerja model.
