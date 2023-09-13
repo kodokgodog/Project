@@ -41,7 +41,8 @@ Kesimpulan Model Analysis:
 Berdasarkan Model Analysis yang dibuat diputuskan bahwa SVM merupakan pemodelan model Classification yang terbaik untuk memprediksi tamu yang mencancel reservasi serta didapatkan hal-hal berikut terkait dengan model yang digunakan, yaitu:
 
 1. Evaluasi skor permodelan menggunakan recall, digunakan karena dapat menunjukkan seberapa baik model dalam memprediksi kelas canceled secara akurat.
-2.Berdasarkan hasil GridSearcCV maka parameter terbaik yang akan digunakan adalah C = 0.1 dan kernel : rbf. Dengan menggunakan parameter tersebut meningkatkan skor recall yang dihasilkan bila dibandingkan dengan base model.
-3.Recall akhir pada data test sebesar 0.9152576899572215 menunjukkan bahwa model mampu mengidentifikasi sekitar 91.52% dari total sampel kelas positif yang sebenarnya. Recall pada data train sebesar 0.9194410193177147 menunjukkan bahwa model mampu mengidentifikasi sekitar 91.94% dari total sampel kelas positif yang sebenarnya.
+2. Berdasarkan hasil GridSearcCV maka parameter terbaik yang akan digunakan adalah C = 0.1 dan kernel : rbf. Dengan menggunakan parameter tersebut meningkatkan skor recall yang dihasilkan bila dibandingkan dengan base model.
+3. Recall akhir pada data test sebesar 0.9152576899572215 menunjukkan bahwa model mampu mengidentifikasi sekitar 91.52% dari total sampel kelas positif yang sebenarnya. Recall pada data train sebesar 0.9194410193177147 menunjukkan bahwa model mampu mengidentifikasi sekitar 91.94% dari total sampel kelas positif yang sebenarnya.
 
-###Untuk pemodelan yang dilakukan masih dapat ditingkatkan kembali, khususnya dalam pencarian hyperparameter tuningnya, bisa ditingkatkan jumlah iterationya sehingga mungkin dapat tereksplor hyperparameter yang lebih baik lagi dan dapat meningkatkan kinerja model.
+
+##Untuk pemodelan yang dilakukan masih dapat ditingkatkan kembali, khususnya dalam pencarian hyperparameter tuningnya, bisa ditingkatkan jumlah iterationya sehingga mungkin dapat tereksplor hyperparameter yang lebih baik lagi dan dapat meningkatkan kinerja model.
