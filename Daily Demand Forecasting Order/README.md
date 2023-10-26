@@ -22,3 +22,9 @@ The model that are used on this modelling is Linear Regression model with the ev
 * Iterative Imputer is the final model that are used on the modelling based on the RMSE value, eventhough the value difference is not really significant.
 * Looking at the score of the MAPE from the model, the model is fit because of the difference between the train and test of the data is not significant with the value of MAPE on the model is about 5.7%.
 * The model got a good score both on MSE and R2 on the training and test data. An R-squared value approaching 1 (in this case, very close to 1) indicates that your model is capable of explaining nearly all of the variation in the target data. On the other hand, a low Mean Squared Error (MSE) indicates that the difference between the model's predictions and the actual data is very small.
+
+## File Description
+### Daily_Demand_Forecasting_Orders.CSV:
+Data that are used on the analysis and modelling
+### Daily_Demand_Forecasting_Orders.ipynb:
+Notebook containing the data analysis and modelling.
